@@ -45,6 +45,7 @@ export const Button = ({
             scale.value = withSpring(1);
         });
         await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+        // @ts-ignore
         onPress?.();
     };
 
