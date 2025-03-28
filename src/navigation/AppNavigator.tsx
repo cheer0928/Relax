@@ -1,9 +1,9 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
+import { WhiteNoiseScreen } from '../screens/WhiteNoiseScreen';
 
-// 先创建占位的screen组件，后续会替换为实际的组件
-const WhiteNoiseScreen = () => null;
+// 临时占位组件
 const BreathingScreen = () => null;
 const TimerScreen = () => null;
 const StoryScreen = () => null;
