@@ -72,6 +72,30 @@ export const Button = ({
         </AnimatedTouchable>
     );
 };
+// 修复主题样式以确保符合 TextStyle
+const typographyBody: TextStyle = {
+    fontSize: theme.typography.body.fontSize,
+    fontWeight: getValidFontWeight(theme.typography.body.fontWeight), // 调用函数获取合法值
+};
+
+// 辅助函数：确保 fontWeight 是合法值
+function getValidFontWeight(fontWeight?: string): TextStyle['fontWeight'] {
+    const validFontWeights: TextStyle['fontWeight'][] = [
+        'normal',
+        'bold',
+        '100',
+        '200',
+        '300',
+        '400',
+        '500',
+        '600',
+        '700',
+        '800',
+        '900',
+    ];
+    return validFontWeights.includes(fontWeight as any) ? (fontWeight as TextStyle['fontWeight']) : 'normal';
+}
+
 
 const styles = StyleSheet.create({
     button: {
@@ -100,7 +124,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: theme.spacing.lg,
     },
     text: {
-        ...theme.typography.body,
+        ...typographyBody,
     },
     primaryText: {
         color: theme.colors.background,
@@ -117,4 +141,4 @@ const styles = StyleSheet.create({
     largeText: {
         fontSize: theme.typography.title.fontSize,
     },
-}); 
+});
